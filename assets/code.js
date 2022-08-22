@@ -17,7 +17,7 @@ function consumo_api_total (url_a_consumir) {
                                     <img src="${pokemon_info.sprites.front_default}" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <label class="fs-6 text-muted">Nombre Personaje:</label>
-                                        <h5 class="text-success fs-2  text-uppercase"> ${pokemon_info.name} </h5>
+                                        <h5 class="text-success fs-2  text-uppercase" style="font-family: Pixelada2";> ${pokemon_info.name} </h5>
                                         <label class="fs-6 text-muted">Peso:</label>
                                         <h2 class="text-primary fs-6 "> ${pokemon_info.weight} hectogramos </h2>
                                         <label class="fs-6 text-muted">Altura:</label>
