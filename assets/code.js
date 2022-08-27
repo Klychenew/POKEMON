@@ -11,6 +11,20 @@ function consumo_api_total (url_a_consumir) {
                     .then(pokemon_info => {
                         let velocidad_pokemon = pokemon_info.stats[5].base_stat
                         let ataque_pokemon = pokemon_info.stats[1].base_stat
+                            
+                            for (const habilidad_pokemon of pokemon_info.abilities) {
+                                let habilidades_data_pokemon = fetch(habilidad_pokemon.url)
+                                habilidades_data_pokemon.then(responder2 => responder2.json())
+                                .then(habilidades_data_pokemon => {
+                                    let Pokemon_habilidad = habilidades_data_pokemon.abilities[0].url.effect_entries.effect
+
+                                })
+                                
+                            }
+                        
+
+
+
                         document.querySelector("#cartas_pokemones").innerHTML += `
                             <div class="col">
                                 <div class="card border border-danger">
@@ -22,10 +36,10 @@ function consumo_api_total (url_a_consumir) {
                                         <h2 class="text-primary fs-6 "> ${pokemon_info.weight} hectogramos </h2>
                                         <label class="fs-6 text-muted">Altura:</label>
                                         <h2 class="text-danger fs-6 "> ${pokemon_info.height} decimetros</h2>
-                                        <label class="fs-6 text-muted">Forma:</label>
-                                        <h2 class="fs-6 text-black" > ${pokemon_info.forms[0].url} No pude </h2> 
+                                        <label class="fs-6 text-muted">otraaaa:</label>
+                                        <h2 class="fs-6 text-black" >  No pude </h2> 
                                         <label class="fs-6 text-muted">Tipo de Pokemon :</label>
-                                        <h2 class="text-primary fs-6 "> No pude jjajaja </h2>
+                                        <h2 class="text-info fs-3 "> ${pokemon_info.types[0].type.name} </h2>
                                         
                                         <div class="container mt-3 p-3" style="background-color: rgb(227, 227, 227);">
                                         <label class="fs-6 text-dark">Velocidad:</label>
