@@ -1,14 +1,10 @@
-function consumo_api_total (url_a_consumir, buscar = false) {
+function consumo_api_total (url_a_consumir) {
     // la funcion que recibe la funcion cousumo_api_total. es ahora la URL de la api
     // let pokemon_url = "https://pokeapi.co/api/v2/pokemon/"
     // let consumo_api = fetch(pokemon_url)
     document.querySelector("#cartas_pokemones").innerHTML = ''
     // LA LINEA 5 se hace para borrar cada vez que cargue el contenido borre todo lo que esta 
     //cargando y si se carga otra pagina, solo traiga los nuevos pokemones 
-
-    if (buscar == true) {
-        url_a_consumir = "https://pokeapi.co/api/v2/pokemon/" + url_a_consumir
-    }
     let consumo_api = fetch(url_a_consumir) 
     // Se deja en el fetch se deja la url dinamica y se llama en la funcion al final del ejercicio
 
@@ -29,7 +25,7 @@ function consumo_api_total (url_a_consumir, buscar = false) {
                                 //     let Pokemon_habilidad = habilidades_data_pokemon.abilities[0].url.effect_entries.effect
                                 // })
                             // }
- 
+
                         document.querySelector("#cartas_pokemones").innerHTML += `
                             <div class="col">
                                 <div class="card border border-danger">
@@ -94,9 +90,4 @@ function crear_botones (url_pagina_siguiente, url_pagina_anterior){
         // la funcion appendChild hace que cree un hijo, app recibe com parametro variable boton siguiente
     }
 }
-consumo_api_total("https://pokeapi.co/api/v2/pokemon")
-
-document.querySelector("#btnBuscar").addEventListener("click", () => {
-    let busquedaUsuario = document.querySelector("#campoBuscar").value  
-    consumo_api_total (busquedaUsuario, true)
-} )
+     consumo_api_total ("https://pokeapi.co/api/v2/pokemon")
